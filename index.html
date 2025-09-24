@@ -28,7 +28,173 @@
 
   <body>
     <!-- Header -->
-    <div id="navbar"></div>
+    <!-- <header class="bg-white" id="navbar-container"></header> -->
+    <header class="bg-white relative">
+      <div
+        class="mx-auto max-w-screen-2xl px-4 py-3 md:px-[120px] md:py-[12px]"
+      >
+        <div class="flex h-20 items-center justify-between">
+          <!-- Logo -->
+          <div class="flex-1 flex items-center md:gap-12">
+            <a class="block text-teal-600" href="index.html">
+              <img src="./assets/images/logo.png" alt="Logo" />
+            </a>
+          </div>
+          <!-- End Logo -->
+
+          <div class="sm:flex sm:items-center sm:gap-12">
+            <!-- Menu Item -->
+            <nav aria-label="Global" class="hidden sm:block">
+              <ul class="flex items-center gap-6 text-sm">
+                <li>
+                  <a
+                    class="text-gray-500 transition hover:text-gray-500/75"
+                    href="#categories"
+                  >
+                    Kategori
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <!-- End Menu Item -->
+
+            <!-- Auth -->
+            <div class="flex items-center gap-4">
+              <!-- Login & Register -->
+              <div id="guest-nav" class="hidden sm:flex sm:gap-4">
+                <a
+                  class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-teal-600/50 shadow-sm"
+                  href="pages/guest/login.html"
+                >
+                  Login
+                </a>
+                <a
+                  class="rounded-md bg-gray-100 border border-teal-600 px-5 py-2.5 text-sm font-medium text-teal-600 hover:bg-teal-600 hover:text-white"
+                  href="pages/guest/register.html"
+                >
+                  Register
+                </a>
+              </div>
+              <!-- End Login & Register -->
+
+              <!-- Profile Dropdown -->
+              <div id="profile-dropdown" class="hidden lg:relative lg:block">
+                <button
+                  type="button"
+                  id="profile-btn"
+                  class="overflow-hidden rounded-full border border-gray-300 shadow-inner"
+                >
+                  <span class="sr-only">Toggle dashboard menu</span>
+                  <img
+                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="User"
+                    class="size-10 object-cover"
+                  />
+                </button>
+
+                <!-- Menu Profile -->
+                <div
+                  id="profile-menu"
+                  class="hidden absolute end-0 z-10 mt-0.5 w-56 divide-y divide-gray-100 rounded-md border border-gray-100 bg-white shadow-lg"
+                  role="menu"
+                >
+                  <div class="p-2">
+                    <a
+                      href="#"
+                      class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                      role="menuitem"
+                    >
+                      My profile
+                    </a>
+
+                    <div class="p-2">
+                      <form method="POST" action="#">
+                        <button
+                          type="submit"
+                          class="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-red-700 hover:bg-red-50 cursor-pointer"
+                          role="menuitem"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="size-4"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
+                            />
+                          </svg>
+                          Logout
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Menu Profile -->
+              </div>
+              <!-- End Profile Dropdown -->
+
+              <!-- Hamburger -->
+              <div class="block md:hidden">
+                <button
+                  id="hamburger-btn"
+                  class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="size-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <!-- End Hamburger -->
+            </div>
+            <!-- End Auth -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden absolute top-16 right-4 z-20 w-60 rounded-md bg-white shadow-lg border border-gray-100"
+      >
+        <ul class="flex flex-col gap-2 p-4 text-sm">
+          <li>
+            <a href="#categories" class="text-gray-600 hover:text-teal-600"
+              >Kategori</a
+            >
+          </li>
+          <li class="flex gap-2 mt-3">
+            <a
+              class="flex-1 rounded-md bg-teal-600 px-4 py-2 text-sm font-medium text-white hover:bg-teal-700 text-center"
+              href="#"
+              >Login</a
+            >
+            <a
+              class="flex-1 rounded-md bg-gray-100 border border-teal-600 px-4 py-2 text-sm font-medium text-teal-600 hover:bg-teal-600 hover:text-white text-center"
+              href="#"
+              >Register</a
+            >
+          </li>
+        </ul>
+      </div>
+      <!-- End Mobile Menu -->
+    </header>
+
     <!-- End Header -->
 
     <!-- Main Content -->
@@ -42,11 +208,49 @@
     <!-- End Footer -->
   </body>
   <!-- JS load Nav -->
-  <script src="js/load-nav.js"></script>
+  <!-- <script src="js/navbar.js"></script> -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      loadNav("components/navbar/navbar.html", "guest");
+    // Simulasi status login
+    const isLoggedIn = true; // ganti ke false kalau belum login
+
+    // Elemen
+    const profileDropdown = document.getElementById("profile-dropdown");
+    const profileBtn = document.getElementById("profile-btn");
+    const profileMenu = document.getElementById("profile-menu");
+    const guestNav = document.getElementById("guest-nav");
+    const hamburgerBtn = document.getElementById("hamburger-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    // Tampilkan sesuai status login
+    if (isLoggedIn) {
+      profileDropdown.classList.remove("lg:block");
+      guestNav.classList.add("hidden");
+    } else {
+      profileDropdown.classList.add("lg:block");
+      guestNav.classList.remove("hidden");
+    }
+
+    // Toggle profile dropdown
+    if (profileBtn) {
+      profileBtn.addEventListener("click", () => {
+        profileMenu.classList.toggle("hidden");
+      });
+    }
+
+    // Toggle hamburger menu
+    hamburgerBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    // Klik di luar dropdown untuk nutup
+    document.addEventListener("click", (e) => {
+      if (
+        profileMenu &&
+        !profileDropdown.contains(e.target) &&
+        !profileMenu.classList.contains("hidden")
+      ) {
+        profileMenu.classList.add("hidden");
+      }
     });
   </script>
-  <!-- End JS load Nav -->
 </html>
