@@ -32,20 +32,57 @@
 
   <body>
     <!-- Header -->
-    <!-- <header class="bg-white" id="navbar-container"></header> -->
-    <header class="bg-white relative">
-      <div
-        class="mx-auto max-w-screen-2xl px-4 py-3 md:px-[120px] md:py-[12px]"
-      >
+    <header class="bg-white sticky top-0 z-30">
+      <div class="mx-auto max-w-screen-xl px-4 py-3 md:px-6 lg:px-8">
         <div class="flex h-20 items-center justify-between">
           <!-- Logo -->
           <div class="flex-1 flex items-center md:gap-12">
             <a class="flex text-[rgba(62,207,76,1)]" href="index.html">
               <img src="./assets/images/logo.png" alt="Logo" />
-              <!-- <span class="text-lg font-semibold text-white">VideoBelajar</span> -->
             </a>
           </div>
           <!-- End Logo -->
+
+          <!-- Hamburger -->
+          <button
+            id="hamburger-btn"
+            class="sm:hidden w-10 h-10 flex items-center justify-center"
+          >
+            <!-- Icon Hamburger -->
+            <svg
+              id="icon-hamburger"
+              class="w-8 h-8 text-gray-800"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+
+            <!-- Icon X -->
+            <svg
+              id="icon-close"
+              class="w-8 h-8 text-gray-800 hidden"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+          <!-- End Hamburger -->
 
           <div class="sm:flex sm:items-center sm:gap-12">
             <!-- Menu Item -->
@@ -53,7 +90,7 @@
               <ul class="flex items-center gap-6 text-sm">
                 <li>
                   <a
-                    class="text-gray-500 transition hover:text-gray-500/75"
+                    class="text-gray-500 font-medium transition hover:text-gray-500/75"
                     href="#categories"
                   >
                     Kategori
@@ -63,195 +100,266 @@
             </nav>
             <!-- End Menu Item -->
 
-            <!-- Auth -->
             <div class="flex items-center gap-4">
               <!-- Login & Register -->
               <div id="guest-nav" class="hidden sm:flex sm:gap-4">
                 <a
-                  class="rounded-md bg-[rgba(62,207,76,1)] px-5 py-2.5 text-sm font-medium text-white border border-[rgba(62,207,76,1)] hover:bg-white hover:border hover:border-[rgba(62,207,76,1)] hover:text-[rgba(62,207,76,1)]"
+                  class="rounded-xl bg-[rgba(62,207,76,1)] px-5 py-2.5 text-sm font-medium text-white border border-[rgba(62,207,76,1)] hover:bg-green-600 hover:border hover:border-[rgba(226,252,217,0.8)]"
                   href="../../pages/guest/login.html"
                 >
                   Login
                 </a>
                 <a
-                  class="rounded-md border bg-white border-[rgba(62,207,76,1)] px-5 py-2.5 text-sm font-medium text-[rgba(62,207,76,1)] hover:bg-[rgba(62,207,76,1)] hover:text-white"
+                  class="rounded-xl border bg-white border-[rgba(62,207,76,1)] text-[rgba(62,207,76,1)] px-5 py-2.5 text-sm font-medium hover:bg-[rgba(62,207,76,1)] hover:text-white"
                   href="../../pages/guest/register.html"
                 >
                   Register
                 </a>
               </div>
               <!-- End Login & Register -->
-
-              <!-- Profile Dropdown -->
-              <div id="profile-dropdown" class="hidden lg:relative lg:block">
-                <button
-                  type="button"
-                  id="profile-btn"
-                  class="overflow-hidden rounded-full border border-gray-300 shadow-inner"
-                >
-                  <span class="sr-only">Toggle dashboard menu</span>
-                  <img
-                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="User"
-                    class="size-10 object-cover"
-                  />
-                </button>
-
-                <!-- Menu Profile -->
-                <div
-                  id="profile-menu"
-                  class="hidden absolute end-0 z-10 mt-0.5 w-56 divide-y divide-gray-100 rounded-md border border-gray-100 bg-white shadow-lg"
-                  role="menu"
-                >
-                  <div class="p-2">
-                    <a
-                      href="#"
-                      class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
-                      role="menuitem"
-                    >
-                      My profile
-                    </a>
-
-                    <div class="p-2">
-                      <form method="POST" action="#">
-                        <button
-                          type="submit"
-                          class="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-red-700 hover:bg-red-50 cursor-pointer"
-                          role="menuitem"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1.5"
-                            stroke="currentColor"
-                            class="size-4"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
-                            />
-                          </svg>
-                          Logout
-                        </button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Menu Profile -->
-              </div>
-              <!-- End Profile Dropdown -->
-
-              <!-- Hamburger -->
-              <div class="block sm:hidden">
-                <button
-                  id="hamburger-btn"
-                  class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="size-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                </button>
-              </div>
-              <!-- End Hamburger -->
             </div>
-            <!-- End Auth -->
           </div>
+
+          <!-- Mobile Menu -->
+          <div
+            id="mobile-menu"
+            class="absolute top-full left-0 right-0 z-20 bg-white/80 backdrop-blur-md flex flex-col px-6 py-4 transform -translate-y-full opacity-0 pointer-events-none transition-all duration-500 ease-in-out sm:hidden shadow-md"
+          >
+            <!-- Nav Item -->
+            <ul class="flex flex-col gap-6 text-lg font-medium">
+              <li>
+                <a href="#" class="text-gray-600 hover:text-[rgba(62,207,76,1)]"
+                  >Kategori</a
+                >
+              </li>
+            </ul>
+            <!-- End Nav Item -->
+
+            <!-- Buttons -->
+            <div class="flex gap-4 mt-8 w-full">
+              <a
+                class="flex-1 rounded-xl bg-[rgba(62,207,76,1)] px-4 py-3 text-center text-white hover:bg-green-600"
+                href="../../pages/guest/login.html"
+              >
+                Login
+              </a>
+              <a
+                class="flex-1 rounded-xl border border-[rgba(62,207,76,1)] px-4 py-3 text-center text-[rgba(62,207,76,1)] hover:bg-[rgba(62,207,76,1)] hover:text-white"
+                href="../../pages/guest/register.html"
+              >
+                Register
+              </a>
+            </div>
+            <!-- End Buttons -->
+          </div>
+          <!-- End Mobile Menu -->
         </div>
       </div>
-
-      <!-- Mobile Menu -->
-      <div
-        id="mobile-menu"
-        class="hidden absolute top-16 right-4 z-20 w-60 rounded-md bg-white shadow-lg border border-gray-100"
-      >
-        <ul class="flex flex-col gap-4 p-4 text-sm">
-          <li>
-            <a
-              href="#categories"
-              class="block text-gray-600 hover:text-[rgba(62,207,76,1)] text-center"
-              >Kategori</a
-            >
-          </li>
-          <li class="flex gap-2 mt-3">
-            <a
-              class="flex-1 rounded-md bg-[rgba(62,207,76,1)] px-4 py-2 text-sm font-medium text-white hover:bg-teal-700 text-center"
-              href="../../pages/guest/login.html"
-              >Login</a
-            >
-            <a
-              class="flex-1 rounded-md bg-gray-100 border border-[rgba(62,207,76,1)] px-4 py-2 text-sm font-medium text-[rgba(62,207,76,1)] hover:bg-[rgba(62,207,76,1)] hover:text-white text-center"
-              href="../../pages/guest/register.html"
-              >Register</a
-            >
-          </li>
-        </ul>
-      </div>
-      <!-- End Mobile Menu -->
     </header>
     <!-- End Header -->
 
     <!-- Main Content -->
-    <section class="bg-gray-50">
-      <div class="p-8 md:p-12 lg:px-16 lg:py-24">
-        <div class="mx-auto max-w-lg text-center">
-          <h2 class="text-2xl font-bold text-gray-900 md:text-3xl">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit
-          </h2>
 
-          <p class="hidden text-gray-500 sm:mt-4 sm:block">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae dolor
-            officia blanditiis repellat in, vero, aperiam porro ipsum laboriosam
-            consequuntur exercitationem incidunt tempora nisi?
-          </p>
-        </div>
+    <section class="bg-[#FFFDF5] relative py-16">
+      <div class="mx-auto max-w-screen-xl px-4 py-3 md:px-6 lg:px-8">
+        <!-- Hero Section -->
+        <div class="relative">
+          <img
+            src="./assets/images/hero_section.jpg"
+            alt="Belajar"
+            class="w-full h-96 object-cover rounded-2xl"
+          />
 
-        <div class="mx-auto mt-8 max-w-xl">
-          <form action="#" class="sm:flex sm:gap-4">
-            <div class="sm:flex-1">
-              <label for="email" class="sr-only">Email</label>
+          <!-- Overlay + Text -->
+          <div class="absolute inset-0 bg-black/60 rounded-2xl"></div>
 
-              <input
-                type="email"
-                placeholder="Email address"
-                class="w-full rounded-md border-gray-200 bg-white p-3 text-gray-700 shadow-xs transition focus:border-white focus:ring-3 focus:ring-yellow-400 focus:outline-hidden"
-              />
-            </div>
-
-            <button
-              type="submit"
-              class="group mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-rose-600 px-5 py-3 text-white transition focus:ring-3 focus:ring-yellow-400 focus:outline-hidden sm:mt-0 sm:w-auto"
-            >
-              <span class="text-sm font-medium"> Sign Up </span>
-
-              <svg
-                class="size-5 shadow-sm rtl:rotate-180"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center text-white px-2 py-2 md:px-4 md:py-4">
+              <h1
+                class="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                Revolusi Pembelajaran: Temukan Ilmu Baru melalui Platform Video
+                Interaktif!
+              </h1>
+              <p
+                class="mt-4 text-sm px-2 py-2 md:text-lg md:px-4 md:py-4 lg:text-xl"
+              >
+                Temukan ilmu baru yang menarik dan mendalam melalui koleksi
+                video pembelajaran berkualitas tinggi. Tidak hanya itu, Anda
+                juga dapat berpartisipasi dalam latihan interaktif yang akan
+                meningkatkan pemahaman Anda.
+              </p>
+              <a
+                href="#"
+                class="mt-6 inline-block bg-[rgba(62,207,76,1)] text-white hover:bg-green-600 font-semibold px-2 py-2 text-base md:px-3 md:py-3 rounded-lg md:text-lg"
+              >
+                Temukan Video Course untuk Dipelajari!
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- End Hero Section -->
+
+        <!-- Menu Card Section -->
+        <div class="mx-auto max-w-screen-xl py-8">
+          <div class="relative">
+            <h1 class="text-xl md:text-3xl font-semibold leading-tight">
+              Koleksi Video Pembelajaran Unggulan
+            </h1>
+            <p
+              class="mt-4 max-w-md text-sm md:text-lg font-medium text-gray-500/75 leading-tight tracking-[0.2px]"
+            >
+              Jelajahi Dunia Pengetahuan Melalui Pilihan Kami!
+            </p>
+          </div>
+
+          <div class="w-full mt-6">
+            <div
+              class="flex gap-6 overflow-x-auto no-scrollbar text-lg font-medium"
+            >
+              <button
+                class="relative w-fit pb-2 text-orange-600 whitespace-nowrap active-category"
+                onclick="setActive(this)"
+              >
+                Semua Kelas
+                <span
+                  class="absolute left-0 -bottom-0 h-[4px] w-1/2 rounded-full bg-orange-600"
+                ></span>
+              </button>
+
+              <button
+                class="relative w-fit whitespace-nowrap pb-2 text-gray-600 hover:text-orange-600 transition"
+                onclick="setActive(this)"
+              >
+                Pemasaran
+              </button>
+
+              <button
+                class="relative w-fit whitespace-nowrap pb-2 text-gray-600 hover:text-orange-600 transition"
+                onclick="setActive(this)"
+              >
+                Desain
+              </button>
+
+              <button
+                class="relative w-fit whitespace-nowrap pb-2 text-gray-600 hover:text-orange-600 transition"
+                onclick="setActive(this)"
+              >
+                Pengembangan Diri
+              </button>
+
+              <button
+                class="relative w-fit whitespace-nowrap pb-2 text-gray-600 hover:text-orange-600 transition"
+                onclick="setActive(this)"
+              >
+                Bisnis
+              </button>
+            </div>
+          </div>
+          <!-- End Menu Card Section -->
+
+          <!-- Card Section -->
+          <div class="card mt-6">
+            <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+              <div
+                class="max-h-max rounded-2xl group relative block overflow-hidden p-4 bg-white border border-gray-100"
+              >
+                <!-- <button
+                    class="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75"
+                  >
+                    <span class="sr-only">Wishlist</span>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="size-4"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                      />
+                    </svg>
+                  </button> -->
+
+                <img
+                  src="./assets/images/product_card/Rectangle 22957.png"
+                  alt=""
+                  class="h-64 w-full p-2 rounded-2xl object-cover transition duration-500 group-hover:scale-105 sm:h-72"
                 />
-              </svg>
-            </button>
-          </form>
+
+                <div class="relative p-2">
+                  <h1 class="mt-1.5 text-xl font-bold text-gray-900">
+                    <a href="#"> Wireless Headphones </a>
+                  </h1>
+
+                  <p class="mt-1.5 line-clamp-2 text-lg text-gray-700">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Labore nobis iure obcaecati pariatur. Officiis qui, enim
+                    cupiditate aliquam corporis iste.
+                  </p>
+
+                  <div
+                    class="flex items-start gap-4 py-1.5 sm:py-2.5 lg:py-3.5"
+                  >
+                    <a href="#" class="block shrink-0">
+                      <img
+                        alt=""
+                        src="./assets/images/profile/1.png"
+                        class="size-14 rounded-lg object-cover"
+                      />
+                    </a>
+
+                    <div>
+                      <h3 class="font-medium sm:text-lg">
+                        <a href="#"> Jenna Ortega </a>
+                      </h3>
+
+                      <p class="line-clamp-2 text-sm text-gray-700">
+                        Senior Accountant di <b>Gojek</b>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-2">
+                    <div class="flex w-full">
+                      <div
+                        id="rating"
+                        class="flex items-center gap-2 text-sm"
+                      ></div>
+                    </div>
+
+                    <a
+                      href="#"
+                      class="flex w-full justify-end text-green-600 font-semibold text-2xl"
+                    >
+                      Rp 300K
+                      <!-- <span class="text-gray-400 line-through">$80</span> -->
+                    </a>
+
+                    <!-- <button
+                      class="block w-full rounded-sm bg-gray-100 px-4 py-3 text-sm font-medium text-gray-900 transition hover:scale-105"
+                    >
+                      Add to Cart
+                    </button>
+
+                    <button
+                      type="button"
+                      class="block w-full rounded-sm bg-gray-900 px-4 py-3 text-sm font-medium text-white transition hover:scale-105"
+                    >
+                      Buy Now
+                    </button> -->
+                  </div>
+                </div>
+              </div>
+              <div class="h-32 rounded bg-white outline-1 outline-black"></div>
+              <div class="h-32 rounded bg-white outline-1 outline-black"></div>
+            </div>
+          </div>
+          <!-- End Card Section -->
         </div>
       </div>
     </section>
@@ -259,10 +367,10 @@
 
     <!-- Footer -->
     <footer class="bg-white">
-      <div
-        class="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8"
-      >
-        <div class="grid grid-cols-1 gap-24 lg:grid-cols-2 items-start">
+      <div class="mx-auto max-w-screen-xl px-4 py-10 sm:px-6 lg:px-8">
+        <div
+          class="space-y-6 sm:grid sm:grid-cols-2 sm:gap-24 sm:space-y-0 items-start"
+        >
           <!-- Logo & Deskripsi -->
           <div class="max-w-sm">
             <div class="flex-1 flex items-center">
@@ -272,15 +380,11 @@
               </a>
             </div>
 
-            <div class="p-4">
-              <h1
-                class="mt-4 max-w-lg font-bold text-lg leading-[1.4] tracking-[0.2px]"
-              >
+            <div>
+              <h1 class="mt-4 font-bold text-lg leading-snug">
                 Gali Potensi Anda Melalui Pembelajaran Video di hariesok.id!
               </h1>
-              <div
-                class="mt-2 max-w-lg text-sm leading-[1.4] tracking-[0.2px] text-gray-600"
-              >
+              <div class="mt-2 text-base leading-snug text-gray-600 space-y-1">
                 <p>Jl. Usman Effendi No. 50 Lowokwaru, Malang</p>
                 <p>+62-877-7123-1234</p>
               </div>
@@ -289,107 +393,216 @@
           <!-- End Deskripsi -->
 
           <!-- Menu Footer -->
-          <div class="grid grid-cols-1 gap-12 sm:grid-cols-3">
+          <div
+            class="space-y-4 sm:grid sm:grid-cols-3 sm:gap-12 sm:space-y-0 pr-2"
+          >
+            <!-- Kategori -->
             <div>
-              <p class="font-medium text-gray-900">Kategori</p>
+              <button
+                class="w-full flex justify-between items-center font-bold text-gray-900 sm:cursor-default group"
+                onclick="toggleFooterMenu('kategori', this)"
+              >
+                Kategori
+                <svg
+                  class="size-5 shrink-0 transition-transform duration-300 sm:hidden group-[.open]:rotate-90"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
 
-              <ul class="mt-6 space-y-4 text-sm">
+              <ul
+                id="kategori"
+                class="mt-4 max-h-0 overflow-hidden transition-all duration-500 ease-in-out space-y-4 text-sm sm:max-h-none sm:block"
+              >
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 transition hover:text-[rgba(255,189,58,1)]"
+                  >
                     Digital & Teknologi
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 transition hover:text-[rgba(255,189,58,1)]"
+                  >
                     Pemasaran
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 transition hover:text-[rgba(255,189,58,1)]"
+                  >
                     Manajemen Bisnis
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 transition hover:text-[rgba(255,189,58,1)]"
+                  >
                     Pengembangan Diri
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 transition hover:text-[rgba(255,189,58,1)]"
+                  >
                     Desain
                   </a>
                 </li>
               </ul>
             </div>
+            <!-- End Kategori -->
 
+            <!-- Perusahaan -->
             <div>
-              <p class="font-medium text-gray-900">Perusahaan</p>
+              <button
+                class="w-full flex justify-between items-center font-bold text-gray-900 sm:cursor-default group"
+                onclick="toggleFooterMenu('perusahaan', this)"
+              >
+                Perusahaan
+                <svg
+                  class="size-5 shrink-0 transition-transform duration-300 sm:hidden group-[.open]:rotate-90"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
 
-              <ul class="mt-6 space-y-4 text-sm">
+              <ul
+                id="perusahaan"
+                class="mt-4 max-h-0 overflow-hidden transition-all duration-500 ease-in-out space-y-4 text-sm sm:max-h-none sm:block"
+              >
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 transition hover:text-[rgba(255,189,58,1)]"
+                  >
                     Tentang Kami
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 transition hover:text-[rgba(255,189,58,1)]"
+                  >
                     FAQ
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 transition hover:text-[rgba(255,189,58,1)]"
+                  >
                     Kebijakan & Privasi
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 transition hover:text-[rgba(255,189,58,1)]"
+                  >
                     Ketentuan Layanan
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 transition hover:text-[rgba(255,189,58,1)]"
+                  >
                     Bantuan
                   </a>
                 </li>
               </ul>
             </div>
+            <!-- End Perusahaan -->
 
+            <!-- Komunitas -->
             <div>
-              <p class="font-medium text-gray-900">Komunitas</p>
+              <button
+                class="w-full flex justify-between items-center font-bold text-gray-900 sm:cursor-default group"
+                onclick="toggleFooterMenu('komunitas', this)"
+              >
+                Komunitas
+                <svg
+                  class="size-5 shrink-0 transition-transform duration-300 sm:hidden group-[.open]:rotate-90"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
 
-              <ul class="mt-6 space-y-4 text-sm">
+              <ul
+                id="komunitas"
+                class="mt-4 max-h-0 overflow-hidden transition-all duration-500 ease-in-out space-y-4 text-sm sm:max-h-none sm:block"
+              >
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 transition hover:text-[rgba(255,189,58,1)]"
+                  >
                     Tips & Sukses
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 transition hover:text-[rgba(255,189,58,1)]"
+                  >
                     Blog
                   </a>
                 </li>
               </ul>
             </div>
+            <!-- End Komunitas -->
           </div>
           <!-- Menu Footer -->
         </div>
-        <div
-          class="mt-16 border-t border-gray-100 pt-6 sm:flex sm:items-center sm:justify-between"
-        >
-          <p class="text-center text-sm text-gray-500 sm:text-left">
-            &copy;2023 Gerobak Sayur. All Rights Reserved.
-          </p>
 
-          <ul class="mt-4 flex justify-center gap-6 sm:mt-0 sm:justify-start">
+        <!-- Sosmed + Copyright -->
+        <div
+          class="mt-4 sm:mt-8 border-t border-gray-100 pt-6 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <!-- Sosmed -->
+          <ul class="flex gap-6 order-1 sm:order-2">
             <li>
               <a
                 href="#"
@@ -478,55 +691,130 @@
               </a>
             </li>
           </ul>
+          <!-- End Sosmed -->
+
+          <!-- Copyright -->
+          <p class="text-sm text-gray-500 order-2 sm:order-1">
+            &copy;2023 Gerobak Sayur. All Rights Reserved.
+          </p>
+          <!-- End Copyright -->
         </div>
+        <!-- End Sosmed + Copyright -->
       </div>
     </footer>
     <!-- End Footer -->
   </body>
-  <!-- JS load Nav -->
-  <!-- <script src="js/navbar.js"></script> -->
+
+  <!-- JS Load Hamburger -->
   <script>
-    // Simulasi status login
-    const isLoggedIn = true; // ganti ke false kalau belum login
+    const btn = document.getElementById("hamburger-btn");
+    const iconHamburger = document.getElementById("icon-hamburger");
+    const iconClose = document.getElementById("icon-close");
+    const menu = document.getElementById("mobile-menu");
 
-    // Elemen
-    const profileDropdown = document.getElementById("profile-dropdown");
-    const profileBtn = document.getElementById("profile-btn");
-    const profileMenu = document.getElementById("profile-menu");
-    const guestNav = document.getElementById("guest-nav");
-    const hamburgerBtn = document.getElementById("hamburger-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
+    // Change position
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("-translate-y-full");
+      menu.classList.toggle("opacity-0");
+      menu.classList.toggle("translate-y-0");
+      menu.classList.toggle("opacity-100");
+      menu.classList.toggle("pointer-events-none");
 
-    // Tampilkan sesuai status login
-    if (isLoggedIn) {
-      profileDropdown.classList.remove("lg:block");
-      guestNav.classList.add("hidden");
-    } else {
-      profileDropdown.classList.add("lg:block");
-      guestNav.classList.remove("hidden");
-    }
-
-    // Toggle profile dropdown
-    if (profileBtn) {
-      profileBtn.addEventListener("click", () => {
-        profileMenu.classList.toggle("hidden");
-      });
-    }
-
-    // Toggle hamburger menu
-    hamburgerBtn.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
-    });
-
-    // Klik di luar dropdown untuk nutup
-    document.addEventListener("click", (e) => {
-      if (
-        profileMenu &&
-        !profileDropdown.contains(e.target) &&
-        !profileMenu.classList.contains("hidden")
-      ) {
-        profileMenu.classList.add("hidden");
-      }
+      iconHamburger.classList.toggle("hidden");
+      iconClose.classList.toggle("hidden");
     });
   </script>
+  <!-- End JS Load Hamburger -->
+
+  <!-- JS Load Footer -->
+  <script>
+    function toggleFooterMenu(id, btn) {
+      const el = document.getElementById(id);
+
+      if (el.classList.contains("max-h-0")) {
+        el.classList.remove("max-h-0");
+        el.classList.add("max-h-screen");
+        btn.classList.add("open");
+      } else {
+        el.classList.remove("max-h-screen");
+        el.classList.add("max-h-0");
+        btn.classList.remove("open");
+      }
+    }
+  </script>
+  <!-- End JS Load Footer -->
+
+  <!-- JS Load Menu Item -->
+  <script>
+    function setActive(el) {
+      // Delete all underline
+      document.querySelectorAll(".active-category").forEach((btn) => {
+        btn.classList.remove("text-orange-600", "active-category");
+        btn.classList.add("text-gray-600");
+        let span = btn.querySelector("span");
+        if (span) span.remove();
+      });
+
+      // Underline
+      el.classList.add("text-orange-600", "active-category");
+      el.classList.remove("text-gray-600");
+
+      if (!el.querySelector("span")) {
+        let underline = document.createElement("span");
+        underline.className =
+          "absolute left-0 -bottom-0 h-[4px] w-1/2 rounded-full bg-orange-600";
+        el.appendChild(underline);
+      }
+    }
+  </script>
+  <!-- End JS Load Menu Item -->
+
+  <!-- JS Load Rating -->
+  <script>
+    const course = {
+      title: "UI/UX Design",
+      rating: 3.5,
+      reviews: 86,
+    };
+
+    function renderStars(rating, reviews, containerId) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = ""; // reset
+
+      // Wrap star
+      const starsWrapper = document.createElement("div");
+      starsWrapper.className = "flex items-center text-yellow-400";
+
+      // Count star full, half, empty
+      const fullStars = Math.floor(rating);
+      const halfStar = rating % 1 >= 0.5 ? 1 : 0;
+      const emptyStars = 5 - fullStars - halfStar;
+
+      // Render full star
+      for (let i = 0; i < fullStars; i++) {
+        starsWrapper.innerHTML += `<i class="fas fa-star"></i>`;
+      }
+
+      // Render half star
+      if (halfStar) {
+        starsWrapper.innerHTML += `<i class="fas fa-star-half-alt"></i>`;
+      }
+
+      // Render empty star
+      for (let i = 0; i < emptyStars; i++) {
+        starsWrapper.innerHTML += `<i class="far fa-star"></i>`;
+      }
+
+      // Text rating
+      const text = document.createElement("p");
+      text.className = "text-gray-700 text-sm ml-2 underline";
+      text.innerHTML = `<span class="font-medium">${rating}</span> <span class="text-gray-500">(${reviews})</span>`;
+
+      container.appendChild(starsWrapper);
+      container.appendChild(text);
+    }
+
+    renderStars(course.rating, course.reviews, "rating");
+  </script>
+  <!-- End JS Load Rating -->
 </html>
