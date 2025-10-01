@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- 
+    Made by Fomalhaut
+
+    https://idon.netlify.app
+
+-->
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | Video Belajar 1.0</title>
+    <meta
+      name="description"
+      content="Video Belajar 1.0 adalah platform pembelajaran online yang menyediakan berbagai video edukatif untuk membantu siswa dan pelajar dalam memahami berbagai mata pelajaran dengan cara yang interaktif dan menyenangkan."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Fomalhaut" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="../../assets/study.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../dist/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* Pastikan wrapper full */
+      .iti {
+        width: 100% !important;
+      }
+
+      /* Input tetap full style Tailwind */
+      .iti input {
+        @apply w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-green-400 focus:outline-none;
+      }
+
+      /* Bagian flag & kode */
+      .iti--separate-dial-code .iti__selected-flag {
+        @apply bg-white border-r border-gray-300 px-2 rounded-l-md;
+      }
+
+      /* Dropdown list negara */
+      .iti__country-list {
+        @apply rounded-md shadow-md text-sm;
+        max-height: 220px;
+      }
+
+      #countryBtn {
+        min-width: 90px; /* biar stabil */
+        height: 42px; /* samain tinggi input */
+      }
+      #phone {
+        height: 42px; /* biar balance */
+      }
+
+      .dropdown-menu {
+        max-height: 250px; /* atau 40vh */
+        overflow-y: auto; /* biar bisa scroll kalo option banyak */
+      }
+    </style>
+
+    <!-- intl-tel-input CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.11.2/build/css/intlTelInput.css"
+    />
+  </head>
+
+  <body class="bg-[#FFFDF5]">
+    <!-- Header -->
+    <header class="bg-white sticky top-0 z-30">
+      <div class="mx-auto max-w-screen-xl px-4 py-3 md:px-6 lg:px-8">
+        <div class="flex h-20 items-center justify-between">
+          <!-- Logo -->
+          <div class="flex-1 flex items-center md:gap-12">
+            <a class="flex text-[rgba(62,207,76,1)]" href="index.html">
+              <img src="../../assets/images/logo.png" alt="Logo" />
+            </a>
+          </div>
+          <!-- End Logo -->
+        </div>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- Main Content -->
+    <main class="flex items-center justify-center min-h-[80vh] my-8 mx-8 px-4">
+      <div
+        class="bg-white shadow-md rounded-lg p-8 w-full max-w-md text-center"
+      >
+        <!-- Title -->
+        <h2 class="text-2xl font-bold mb-2">Pendaftaran Akun</h2>
+        <p class="text-gray-500 text-sm mb-6">
+          Yuk, daftarkan akunmu sekarang juga!
+        </p>
+
+        <!-- Form -->
+        <form
+          action="../user/index.html"
+          method="post"
+          class="space-y-4 text-left"
+        >
+          <!-- Name -->
+          <div>
+            <label
+              for="fullName"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Nama Lengkap <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="fullName"
+              id="fullName"
+              name="fullName"
+              class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-green-400 focus:outline-none"
+              placeholder="Masukkan Nama Lengkap"
+              required
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label
+              for="email"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >E-Mail <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-green-400 focus:outline-none"
+              placeholder="Masukkan email"
+              required
+            />
+          </div>
+
+          <!-- Gender -->
+          <!-- <div>
+            <label
+              for="gender"
+              class="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Jenis Kelamin <span class="text-red-500">*</span>
+            </label>
+
+            <select
+              name="gender"
+              id="gender"
+              class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-green-400 focus:outline-none text-gray-700"
+              required
+            >
+              <option value="" disabled selected hidden>
+                Pilih jenis kelamin
+              </option>
+              <option value="pria">Laki-laki</option>
+              <option value="wanita">Perempuan</option>
+            </select>
+          </div> -->
+
+          <div id="dropdown-gender" data-dropdown>
+            <label
+              for="gender"
+              class="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Jenis Kelamin <span class="text-red-500">*</span>
+            </label>
+
+            <div class="relative">
+              <!-- Button -->
+              <button
+                type="button"
+                class="dropdown-btn w-full flex justify-between items-center border border-gray-300 rounded-md px-3 py-2 text-gray-700 bg-white focus:ring-2 focus:ring-green-400 focus:outline-none"
+              >
+                <span class="dropdown-selected">Pilih jenis kelamin</span>
+                <svg
+                  class="w-4 h-4 text-gray-500 transition-transform duration-200 dropdown-arrow"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              <!-- Hidden input buat form -->
+              <input type="hidden" name="gender" class="dropdown-value" />
+
+              <!-- Dropdown -->
+              <ul
+                class="dropdown-menu absolute hidden opacity-0 scale-95 transition transform duration-200 w-full bg-white border border-gray-300 rounded-md mt-1 shadow-md z-20"
+              >
+                <li
+                  data-value="pria"
+                  class="px-4 py-2 hover:bg-gray-100 rounded-t-md cursor-pointer text-gray-700"
+                >
+                  Laki-laki
+                </li>
+                <li
+                  data-value="wanita"
+                  class="px-4 py-2 hover:bg-gray-100 rounded-b-md cursor-pointer text-gray-700"
+                >
+                  Perempuan
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Number Phone -->
+          <!-- <div>
+            <label
+              for="phone"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >No. Hp <span class="text-red-500">*</span>
+            </label>
+
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-green-400 focus:outline-none"
+              placeholder="Masukkan No. Hp"
+              required
+            />
+
+            <input type="hidden" name="phone" id="fullPhone" />
+          </div> -->
+
+          <!-- Phone Input -->
+          <div>
+            <label
+              for="phone"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >No. Hp <span class="text-red-500">*</span>
+            </label>
+
+            <div class="relative flex gap-2" id="dropdown-country-wrapper">
+              <!-- Country Selector -->
+              <div id="dropdown-country">
+                <button
+                  type="button"
+                  class="dropdown-btn flex items-center justify-between min-w-[100px] border border-gray-300 rounded-md px-3 py-2 bg-white focus:ring-2 focus:ring-green-400 focus:outline-none"
+                >
+                  <div class="flex items-center gap-1">
+                    <img
+                      id="flagImg"
+                      src="https://flagcdn.com/w20/id.png"
+                      alt="Indonesia"
+                      class="w-5 h-4"
+                    />
+                    <span id="dialCode" class="dropdown-selected">+62</span>
+                  </div>
+                  <svg
+                    class="w-4 h-4 text-gray-500 transition-transform duration-200 dropdown-arrow"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+
+                <input
+                  type="hidden"
+                  name="dialCode"
+                  class="dropdown-value"
+                  value="+62"
+                />
+
+                <!-- Dropdown Country List full width -->
+                <ul
+                  class="dropdown-menu absolute hidden opacity-0 scale-95 transition transform duration-200 w-full bg-white border border-gray-300 rounded-md mt-1 shadow-md z-20"
+                >
+                  <li
+                    data-value="+62"
+                    data-flag="id"
+                    class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700 flex items-center gap-2"
+                  >
+                    <img src="https://flagcdn.com/w20/id.png" class="w-5 h-4" />
+                    Indonesia (+62)
+                  </li>
+                  <li
+                    data-value="+60"
+                    data-flag="my"
+                    class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700 flex items-center gap-2"
+                  >
+                    <img src="https://flagcdn.com/w20/my.png" class="w-5 h-4" />
+                    Malaysia (+60)
+                  </li>
+                  <li
+                    data-value="+65"
+                    data-flag="sg"
+                    class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700 flex items-center gap-2"
+                  >
+                    <img src="https://flagcdn.com/w20/sg.png" class="w-5 h-4" />
+                    Singapore (+65)
+                  </li>
+                  <li
+                    data-value="+1"
+                    data-flag="us"
+                    class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700 flex items-center gap-2"
+                  >
+                    <img src="https://flagcdn.com/w20/us.png" class="w-5 h-4" />
+                    United States (+1)
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Phone Number Input -->
+              <div
+                id="phoneWrapper"
+                class="flex-1 flex items-center border border-gray-300 rounded-md overflow-hidden focus-within:ring-2 focus-within:ring-green-400"
+              >
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="w-full px-3 py-2 focus:outline-none"
+                  placeholder="812 3456 7890"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Hidden full phone number -->
+            <input type="hidden" name="phoneFull" id="phoneFull" />
+          </div>
+
+          <!-- Password -->
+          <div>
+            <label
+              for="password"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Kata Sandi <span class="text-red-500">*</span>
+            </label>
+            <div class="relative">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-green-400 focus:outline-none"
+                placeholder="Masukkan kata sandi"
+                required
+              />
+              <button
+                type="button"
+                class="togglePassword absolute inset-y-0 right-3 flex items-center text-gray-400 cursor-pointer"
+              >
+                <i class="fa-solid fa-eye-slash"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Confirm Password -->
+          <div>
+            <label
+              for="confirmPassword"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Konfirmasi Kata Sandi <span class="text-red-500">*</span>
+            </label>
+            <div class="relative">
+              <input
+                type="confirmPassword"
+                id="confirmPassword"
+                name="confirmPassword"
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-green-400 focus:outline-none"
+                placeholder="Masukkan kata sandi"
+                required
+              />
+              <button
+                type="button"
+                class="togglePassword absolute inset-y-0 right-3 flex items-center text-gray-400 cursor-pointer"
+              >
+                <i class="fa-solid fa-eye-slash"></i>
+              </button>
+            </div>
+            <div class="text-right mt-1">
+              <a
+                href="#"
+                class="text-sm text-gray-500 hover:text-green-600 font-medium"
+                >Lupa Password?</a
+              >
+            </div>
+          </div>
+
+          <!-- Button Login -->
+          <button
+            type="submit"
+            class="w-full bg-green-500 text-white font-semibold rounded-md py-2 hover:bg-green-600 transition cursor-pointer"
+          >
+            Masuk
+          </button>
+
+          <!-- Button Register -->
+          <a
+            href="../../pages/auth/register.html"
+            class="block w-full text-center bg-green-100 text-green-600 font-semibold rounded-md py-2 hover:bg-green-200 transition"
+          >
+            Daftar
+          </a>
+        </form>
+
+        <!-- Divider -->
+        <div class="flex items-center my-6">
+          <hr class="flex-grow border-gray-300" />
+          <span class="px-2 text-gray-400 text-sm">atau</span>
+          <hr class="flex-grow border-gray-300" />
+        </div>
+
+        <!-- Google Login -->
+        <button
+          class="w-full flex items-center justify-center gap-2 border border-gray-300 rounded-md py-2 hover:bg-gray-50 transition cursor-pointer"
+        >
+          <img
+            src="https://www.svgrepo.com/show/355037/google.svg"
+            alt="Google"
+            class="w-5 h-5"
+          />
+          Masuk dengan Google
+        </button>
+      </div>
+    </main>
+    <!-- End Main Content -->
+
+    <script type="module" src="../../script/auth.js"></script>
+
+    <!-- intl-tel-input JS -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.11.2/build/js/intlTelInput.min.js"></script>
+    <!-- <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const phoneInput = document.querySelector("#phone");
+        const fullPhone = document.querySelector("#fullPhone");
+
+        const iti = window.intlTelInput(phoneInput, {
+          initialCountry: "id", // default Indonesia
+          separateDialCode: true,
+          preferredCountries: ["id", "my", "sg", "us"],
+          loadUtils: () =>
+            import(
+              "https://cdn.jsdelivr.net/npm/intl-tel-input@25.11.2/build/js/utils.js"
+            ),
+        });
+
+        // Update hidden input sebelum submit
+        phoneInput.form.addEventListener("submit", function () {
+          fullPhone.value = iti.getNumber();
+        });
+      });
+    </script> -->
+
+    <!-- <script>
+      const input = document.querySelector("#phone");
+      const flagImg = document.querySelector("#flagImg");
+      const dialCode = document.querySelector("#dialCode");
+
+      // init intl-tel-input
+      const iti = window.intlTelInput(input, {
+        initialCountry: "id",
+        utilsScript:
+          "https://cdn.jsdelivr.net/npm/intl-tel-input@25.11.2/build/js/utils.js",
+        separateDialCode: true, // supaya kode negara bisa dipisah
+      });
+
+      // update UI saat ganti negara
+      input.addEventListener("countrychange", () => {
+        const data = iti.getSelectedCountryData();
+        flagImg.src = `https://flagcdn.com/w20/${data.iso2}.png`;
+        flagImg.alt = data.name;
+        dialCode.textContent = `+${data.dialCode}`;
+      });
+    </script> -->
+
+    <script>
+      function initDropdown(wrapperId) {
+        const wrapper = document.getElementById(wrapperId);
+        if (!wrapper) return;
+
+        const btn = wrapper.querySelector(".dropdown-btn");
+        const menu = wrapper.querySelector(".dropdown-menu");
+        const selected = wrapper.querySelector(".dropdown-selected");
+        const hiddenInput = wrapper.querySelector(".dropdown-value");
+        const arrow = wrapper.querySelector(".dropdown-arrow");
+
+        // Toggle menu
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          if (menu.classList.contains("hidden")) {
+            // SHOW
+            menu.classList.remove("hidden");
+            requestAnimationFrame(() => {
+              menu.classList.remove("opacity-0", "scale-95");
+              menu.classList.add("opacity-100", "scale-100");
+            });
+            arrow.classList.add("rotate-180");
+          } else {
+            // HIDE
+            closeMenu();
+          }
+        });
+
+        // Pilih item
+        menu.querySelectorAll("li").forEach((item) => {
+          item.addEventListener("click", () => {
+            selected.textContent = item.textContent;
+            hiddenInput.value = item.dataset.value;
+            closeMenu();
+          });
+        });
+
+        // Klik di luar -> close
+        document.addEventListener("click", (e) => {
+          if (!wrapper.contains(e.target)) {
+            closeMenu();
+          }
+        });
+
+        function closeMenu() {
+          if (!menu.classList.contains("hidden")) {
+            menu.classList.remove("opacity-100", "scale-100");
+            menu.classList.add("opacity-0", "scale-95");
+            setTimeout(() => menu.classList.add("hidden"), 200);
+            arrow.classList.remove("rotate-180");
+          }
+        }
+      }
+
+      // Init
+      document.addEventListener("DOMContentLoaded", () => {
+        // Init dropdowns
+        initDropdown("dropdown-gender");
+        initDropdown("dropdown-country");
+
+        // Phone sync
+        const phoneInput = document.getElementById("phone");
+        const fullPhone = document.getElementById("phoneFull");
+        const countryWrapper = document.getElementById("dropdown-country");
+        const dialCode = countryWrapper.querySelector(".dropdown-value");
+        const flagImg = document.getElementById("flagImg");
+        const dialCodeText = document.getElementById("dialCode");
+
+        // Update full phone saat submit
+        phoneInput.form.addEventListener("submit", () => {
+          fullPhone.value = dialCode.value + phoneInput.value;
+        });
+
+        // Update UI kalau pilih negara
+        countryWrapper.querySelectorAll("li").forEach((item) => {
+          item.addEventListener("click", () => {
+            const code = item.dataset.value;
+            const flag = item.dataset.flag;
+            dialCode.value = code;
+            dialCodeText.textContent = code;
+            flagImg.src = `https://flagcdn.com/w20/${flag}.png`;
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -22,30 +22,22 @@
       href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" href="assets/study.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="dist/output.css" />
+    <link rel="icon" href="../../assets/study.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../dist/output.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-
-    <script>
-      // Jalankan saat halaman selesai dimuat
-      window.onload = () => {
-        const isLoggedIn = localStorage.getItem("isLoggedIn");
-
-        if (isLoggedIn === "true") {
-          // Kalau user sudah login, lempar ke halaman auth
-          window.location.href = "pages/auth/index.html";
-        } else {
-          // Kalau belum login, lempar ke halaman guest
-          window.location.href = "pages/guest/index.html";
-        }
-      };
-    </script>
   </head>
 
   <body>
-    <p>Sedang memeriksa status login...</p>
+    <button id="logoutBtn">Logout</button>
+
+    <script>
+      document.getElementById("logoutBtn").addEventListener("click", () => {
+        localStorage.removeItem("isLoggedIn");
+        window.location.href = "../../index.html";
+      });
+    </script>
   </body>
 </html>
