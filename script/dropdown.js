@@ -1,57 +1,51 @@
 export function initDropdown(wrapperId) {
-    const wrappers = wrapperId
-        ? [document.getElementById(wrapperId)]
-        : document.querySelectorAll("[data-dropdown]");
+    const wrapper = document.getElementById(wrapperId);
+    if (!wrapper) return;
 
-    wrappers.forEach((wrapper) => {
-        if (!wrapper) return;
+    const btn = wrapper.querySelector(".dropdown-btn");
+    const menu = wrapper.querySelector(".dropdown-menu");
+    const selected = wrapper.querySelector(".dropdown-selected");
+    const hiddenInput = wrapper.querySelector(".dropdown-value");
+    const arrow = wrapper.querySelector(".dropdown-arrow");
 
-        const btn = wrapper.querySelector(".dropdown-btn");
-        const menu = wrapper.querySelector(".dropdown-menu");
-        const selected = wrapper.querySelector(".dropdown-selected");
-        const hiddenInput = wrapper.querySelector(".dropdown-value");
+    if (!btn || !menu) return; // safety
 
-        // Pastikan default state di HTML: invisible opacity-0 scale-95
-        // Example: class="dropdown-menu absolute invisible opacity-0 scale-95 transition transform duration-200 ..."
-
-        // Toggle menu
-        btn.addEventListener("click", (e) => {
-            e.stopPropagation();
-
-            if (menu.classList.contains("invisible")) {
-                // SHOW
-                menu.classList.remove("invisible", "opacity-0", "scale-95");
-                menu.classList.add("opacity-100", "scale-100");
-            } else {
-                // HIDE
-                closeMenu();
-            }
+    function openMenu() {
+        // show + animate in
+        menu.classList.remove("hidden", "opacity-0", "scale-95");
+        requestAnimationFrame(() => {
+            menu.classList.remove("opacity-0", "scale-95");
+            menu.classList.add("opacity-100", "scale-100");
         });
+        arrow?.classList.add("rotate-180");
+    }
 
-        // Pilih item
-        menu.querySelectorAll("li").forEach((item) => {
-            item.addEventListener("click", () => {
-                selected.textContent = item.textContent;
-                hiddenInput.value = item.dataset.value;
-                closeMenu();
-            });
+    function closeMenu() {
+        // animate out then hide after animation duration (200ms)
+        menu.classList.remove("opacity-100", "scale-100");
+        menu.classList.add("opacity-0", "scale-95");
+        setTimeout(() => menu.classList.add("hidden"), 200);
+        arrow?.classList.remove("rotate-180");
+    }
+
+    btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (menu.classList.contains("hidden")) openMenu();
+        else closeMenu();
+    });
+
+    menu.querySelectorAll("li").forEach((item) => {
+        item.addEventListener("click", () => {
+            if (selected) selected.textContent = item.textContent;
+            if (hiddenInput) hiddenInput.value = item.dataset.value ?? item.textContent;
+            closeMenu();
         });
+    });
 
-        // Klik di luar -> close
-        document.addEventListener("click", (e) => {
-            if (!wrapper.contains(e.target)) {
-                closeMenu();
-            }
-        });
-
-        function closeMenu() {
-            if (!menu.classList.contains("invisible")) {
-                menu.classList.remove("opacity-100", "scale-100");
-                menu.classList.add("opacity-0", "scale-95");
-                setTimeout(() => {
-                    menu.classList.add("invisible");
-                }, 200); // sesuai durasi transition
-            }
+    // Click outside -> close
+    document.addEventListener("click", (e) => {
+        if (!wrapper.contains(e.target)) {
+            closeMenu();
         }
     });
 }

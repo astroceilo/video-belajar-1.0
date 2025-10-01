@@ -1,0 +1,121 @@
+<!-- Phone Input -->
+          <div>
+            <label
+              for="phone"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >No. Hp <span class="text-red-500">*</span>
+            </label>
+
+            <div class="relative flex gap-2">
+              <!-- Country Selector -->
+              <div id="dropdown-country">
+                <button
+                  type="button"
+                  class="dropdown-btn flex items-center justify-between min-w-[100px] border border-gray-300 rounded-md px-3 py-2 bg-white focus:ring-2 focus:ring-green-400 focus:outline-none"
+                >
+                  <div class="flex items-center gap-1">
+                    <img
+                      id="flagImg"
+                      src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/id.svg"
+                      alt="Indonesia"
+                      class="w-5 h-4"
+                    />
+                    <span id="dialCode" class="dropdown-selected">+62</span>
+                  </div>
+                  <svg
+                    class="w-4 h-4 text-gray-500 transition-transform duration-200 dropdown-arrow"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+
+                <input
+                  type="hidden"
+                  name="dialCode"
+                  class="dropdown-value"
+                  value="+62"
+                />
+
+                <!-- Dropdown Country List full width -->
+                <ul
+                  class="dropdown-menu absolute hidden opacity-0 scale-95 transition transform duration-200 w-full bg-white border border-gray-300 rounded-md mt-1 shadow-md z-20"
+                >
+                  <li
+                    data-value="+62"
+                    data-flag="id"
+                    class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700 flex items-center gap-2"
+                  >
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/id.svg"
+                      class="w-5 h-4"
+                    />
+                    Indonesia (+62)
+                  </li>
+                  <li
+                    data-value="+60"
+                    data-flag="my"
+                    class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700 flex items-center gap-2"
+                  >
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/my.svg"
+                      class="w-5 h-4"
+                    />
+                    Malaysia (+60)
+                  </li>
+                  <li
+                    data-value="+65"
+                    data-flag="sg"
+                    class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700 flex items-center gap-2"
+                  >
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/sg.svg"
+                      class="w-5 h-4"
+                    />
+                    Singapore (+65)
+                  </li>
+                  <li
+                    data-value="+1"
+                    data-flag="us"
+                    class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700 flex items-center gap-2"
+                  >
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/us.svg"
+                      class="w-5 h-4"
+                    />
+                    United States (+1)
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Phone Number Input -->
+              <div
+                id="phoneWrapper"
+                class="flex-1 flex items-center border border-gray-300 rounded-md overflow-hidden focus-within:ring-2 focus-within:ring-green-400"
+              >
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="w-full px-3 py-2 focus:outline-none"
+                  placeholder="812 3456 7890"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Error Message -->
+            <p id="phoneError" class="text-red-500 text-sm mt-1 hidden">
+              Nomor HP harus 9 - 15 digit
+            </p>
+
+            <!-- Hidden full phone number -->
+            <input type="hidden" name="phoneFull" id="phoneFull" />
+          </div>

@@ -1,0 +1,54 @@
+// Phone sync
+const phoneInput = document.getElementById("phone");
+const fullPhone = document.getElementById("phoneFull");
+const countryWrapper = document.getElementById("dropdown-country");
+const dialCode = countryWrapper.querySelector(".dropdown-value");
+const flagImg = document.getElementById("flagImg");
+const dialCodeText = document.getElementById("dialCode");
+
+// Just number can input on form phone
+phoneInput.addEventListener("input", function () {
+    this.value = this.value.replace(/[^0-9]/g, "");
+});
+
+// Validasi number phone length
+phoneInput.addEventListener("blur", function () {
+    validatePhone();
+});
+
+// Update full phone after submit
+phoneInput.form.addEventListener("submit", (e) => {
+    const isValid = validatePhone();
+    if (!isValid) {
+        e.preventDefault(); // invalid if submit
+        return;
+    }
+
+    fullPhone.value = dialCode.value + phoneInput.value;
+});
+
+// Helper validasi number phone
+function validatePhone() {
+    const value = phoneInput.value.trim();
+    if (value.length < 9 || value.length > 15) {
+        phoneError.textContent = "Nomor HP harus 9 - 15 digit";
+        phoneError.classList.remove("hidden");
+        phoneInput.classList.add("border-red-500", "focus:ring-red-400");
+        return false;
+    } else {
+        phoneError.classList.add("hidden");
+        phoneInput.classList.remove("border-red-500");
+        return true;
+    }
+}
+
+// Update UI if choose country
+countryWrapper.querySelectorAll("li").forEach((item) => {
+    item.addEventListener("click", () => {
+        const code = item.dataset.value;
+        const flag = item.dataset.flag;
+        dialCode.value = code;
+        dialCodeText.textContent = code;
+        flagImg.src = `https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/${flag}.svg`; // https://lipis.github.io/flag-icons/
+    });
+});

@@ -31,6 +31,68 @@
   </head>
 
   <body>
+    <!-- Overlay -->
+    <div
+      id="loginOverlay"
+      class="fixed inset-0 hidden bg-black/30 backdrop-blur-xs z-40"
+    ></div>
+    <!-- Alert on login success -->
+    <div
+      id="loginSuccessNotif"
+      role="alert"
+      class="rounded-md border border-gray-300 bg-white p-4 shadow-sm fixed z-50 top-4 left-1/2 transform -translate-x-1/2 transition-opacity duration-500 opacity-0"
+    >
+      <div class="flex items-start gap-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6 text-green-600"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+
+        <div class="flex-1">
+          <strong class="font-medium text-gray-900"> Login Success ✅ </strong>
+
+          <p class="mt-0.5 text-sm text-gray-700">
+            You can buy the course now.
+          </p>
+        </div>
+
+        <button
+          id="closeNotifBtn"
+          class="-m-3 rounded-full p-1.5 text-gray-500 transition-colors hover:bg-gray-50 hover:text-gray-700 cursor-pointer"
+          type="button"
+          aria-label="Dismiss alert"
+        >
+          <span class="sr-only">Dismiss popup</span>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-5"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- End Alert on login success -->
+
     <!-- Header -->
     <header class="bg-white sticky top-0 z-30">
       <div class="mx-auto max-w-screen-xl px-4 py-3 md:px-6 lg:px-8">
@@ -101,22 +163,66 @@
             <!-- End Menu Item -->
 
             <div class="flex items-center gap-4">
-              <!-- Login & Register -->
-              <div id="guest-nav" class="hidden sm:flex sm:gap-4">
-                <a
-                  class="rounded-xl bg-[rgba(62,207,76,1)] px-5 py-2.5 text-sm font-medium text-white border border-[rgba(62,207,76,1)] hover:bg-green-600 hover:border hover:border-[rgba(226,252,217,0.8)]"
-                  href="../../pages/auth/login.html"
+              <!-- Profile Dropdown -->
+              <div id="profile-dropdown" class="hidden lg:relative lg:block">
+                <button
+                  type="button"
+                  id="profile-btn"
+                  class="overflow-hidden rounded-md shadow-inner"
                 >
-                  Login
-                </a>
-                <a
-                  class="rounded-xl border bg-white border-[rgba(62,207,76,1)] text-[rgba(62,207,76,1)] px-5 py-2.5 text-sm font-medium hover:bg-[rgba(62,207,76,1)] hover:text-white"
-                  href="../../pages/auth/register.html"
+                  <span class="sr-only">Toggle dashboard menu</span>
+                  <img
+                    src="../../assets/images/profile/avatar.png"
+                    alt="User"
+                    class="size-10 object-cover"
+                  />
+                </button>
+
+                <!-- Menu Profile -->
+                <div
+                  id="profile-menu"
+                  class="hidden absolute end-0 z-10 mt-0.5 w-56 divide-y divide-gray-100 rounded-md border border-gray-100 bg-white shadow-lg"
+                  role="menu"
                 >
-                  Register
-                </a>
+                  <div class="p-2">
+                    <a
+                      href="#"
+                      class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                      role="menuitem"
+                    >
+                      My profile
+                    </a>
+
+                    <div class="p-2">
+                      <form method="POST" action="#">
+                        <button
+                          type="submit"
+                          class="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-red-700 hover:bg-red-50 cursor-pointer"
+                          role="menuitem"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="size-4"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
+                            />
+                          </svg>
+                          Logout
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Menu Profile -->
               </div>
-              <!-- End Login & Register -->
+              <!-- End Profile Dropdown -->
             </div>
           </div>
 
@@ -1201,5 +1307,60 @@
     <!-- End Footer -->
 
     <script type="module" src="../../script/script.js"></script>
+
+    <!-- <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (localStorage.getItem("loginSuccess") === "true") {
+          alert("Login Berhasil ✅");
+          localStorage.removeItem("loginSuccess"); // hapus biar nggak muncul lagi kalau reload
+        }
+      });
+    </script> -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const notif = document.getElementById("loginSuccessNotif");
+        const overlay = document.getElementById("loginOverlay");
+        const closeBtn = document.getElementById("closeNotifBtn");
+
+        // cek flag dari login.js
+        if (localStorage.getItem("loginSuccess") === "true") {
+          // munculin notif (fade in)
+          notif.classList.remove("opacity-0");
+          notif.classList.add("opacity-100");
+
+          // munculin overlay
+          overlay.classList.remove("hidden");
+
+          // auto-hide setelah 3 detik
+          setTimeout(() => {
+            notif.classList.remove("opacity-100");
+            notif.classList.add("opacity-0");
+            overlay.classList.add("hidden");
+          }, 3000);
+
+          localStorage.removeItem("loginSuccess");
+        }
+
+        // klik overlay juga bisa nutup
+        overlay.addEventListener("click", () => {
+          notif.classList.remove("opacity-100");
+          notif.classList.add("opacity-0");
+          overlay.classList.add("hidden");
+        });
+
+        // close manual
+        closeBtn?.addEventListener("click", () => {
+          notif.classList.remove("opacity-100");
+          notif.classList.add("opacity-0");
+          overlay.classList.add("hidden");
+        });
+
+        // langsung munculin notif + overlay tiap reload
+        // notif.classList.remove("opacity-0");
+        // notif.classList.add("opacity-100");
+        // overlay.classList.remove("hidden");
+      });
+    </script>
   </body>
 </html>

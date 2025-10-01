@@ -2,8 +2,9 @@ import { initHamburger } from "./hamburger.js";
 import { initCardMenu } from "./cardMenu.js";
 import { initRating } from "./rating.js";
 import { initFooter } from "./footer.js";
-import { initAuth } from "./auth.js";
 // import { initDropdown } from "./dropdown.js";
+import { initLogin } from "./login.js";
+import { initRegister } from "./register.js";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -11,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initCardMenu();
   initRating();
   initFooter();
-  initAuth();
   // initDropdown();
+  initLogin();
+  initRegister();
 });
