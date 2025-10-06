@@ -61,7 +61,7 @@ export const hamburger = `
             >
               <span class="sr-only">Toggle profile menu</span>
               <img
-                src="../../assets/images/profile/avatar.png"
+                src="../../assets/images/profile/9.png"
                 alt="User"
                 class="size-10 object-cover"
               />
