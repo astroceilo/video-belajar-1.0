@@ -91,7 +91,7 @@ export const hamburger = `
                   class="block rounded-lg px-4 py-2 text-base text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                   role="menuitem"
                 >
-                  My profile KONTOL
+                  My profile
                 </a>
 
                 <button
