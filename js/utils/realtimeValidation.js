@@ -6,16 +6,17 @@ export function initRealtimeValidation() {
     const phoneInput = document.getElementById("phone");
     const password = document.getElementById("password");
     const confirm = document.getElementById("confirmPassword");
-    const passwordError = document.getElementById("passwordError");
-    const confirmError = document.getElementById("confirmPasswordError");
 
     if (fullNameInput) {
         fullNameInput.addEventListener("input", () => {
             const error = document.getElementById("fullNameError");
             const val = fullNameInput.value.trim();
-            const pattern = /^[A-Za-z\s]+$/;
-            if (val && (val.length < 3 || !pattern.test(val))) {
-                error.textContent = "Nama minimal 3 huruf dan hanya boleh huruf";
+            const nameRegex = /^[\p{L}\s]+$/u; // Unicode letters and spaces
+            if (val.length < 3) {
+                error.textContent = "Nama minimal 3 karakter.";
+                error.classList.remove("hidden");
+            } else if (!nameRegex.test(val)) {
+                error.textContent = "Nama hanya boleh berisi huruf dan spasi.";
                 error.classList.remove("hidden");
             } else {
                 error.classList.add("hidden");
@@ -26,9 +27,9 @@ export function initRealtimeValidation() {
     if (emailInput) {
         emailInput.addEventListener("input", () => {
             const error = document.getElementById("emailError");
-            const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!pattern.test(emailInput.value.trim())) {
-                error.textContent = "Email tidak valid";
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(emailInput.value.trim())) {
+                error.textContent = "Email tidak valid. Contoh: nama@domain.com";
                 error.classList.remove("hidden");
             } else {
                 error.classList.add("hidden");
@@ -38,10 +39,18 @@ export function initRealtimeValidation() {
 
     if (phoneInput) {
         phoneInput.addEventListener("input", () => {
+            // clean input, just allow digits and +
+            phoneInput.value = phoneInput.value.replace(/[^0-9+]/g, "");
+
             const error = document.getElementById("phoneError");
             const digits = phoneInput.value.replace(/\D/g, "");
-            if (digits.length > 0 && (digits.length < 9 || digits.length > 15)) {
-                error.textContent = "Nomor HP harus 9–15 digit";
+            if (digits.length === 0) {
+                error.classList.add("hidden");
+            } else if (digits.length < 9) {
+                error.textContent = "Nomor HP terlalu pendek (minimal 9 digit)";
+                error.classList.remove("hidden");
+            } else if (digits.length > 15) {
+                error.textContent = "Nomor HP terlalu panjang (maksimal 15 digit)";
                 error.classList.remove("hidden");
             } else {
                 error.classList.add("hidden");
@@ -51,6 +60,7 @@ export function initRealtimeValidation() {
 
     if (password) {
         password.addEventListener("input", () => {
+            const passwordError = document.getElementById("passwordError");
             const val = password.value;
             if (!isPasswordStrong(val)) {
                 passwordError.textContent = "Minimal 8 karakter, huruf besar, kecil, angka & simbol.";
@@ -63,6 +73,7 @@ export function initRealtimeValidation() {
 
     if (password && confirm) {
         function validatePasswords() {
+            const confirmError = document.getElementById("confirmPasswordError");
             if (confirm.value && !isPasswordMatch(password.value, confirm.value)) {
                 confirmError.textContent = "Password tidak sama!";
                 confirmError.classList.remove("hidden");

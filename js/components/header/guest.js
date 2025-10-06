@@ -1,15 +1,53 @@
-<header class="bg-white sticky top-0 z-30">
-  <div class="mx-auto max-w-screen-xl px-4 py-3 md:px-6 lg:px-8">
-    <div class="flex h-20 items-center justify-between">
-      <!-- Logo -->
-      <div class="flex-1 flex items-center md:gap-12">
-        <a class="flex text-[rgba(62,207,76,1)]" href="index.html">
-          <img src="../../assets/images/logo.png" alt="Logo" />
-        </a>
-      </div>
-      <!-- End Logo -->
+export const headerGuest = `
 
-      <!-- Hamburger -->
+<div class="mx-auto max-w-screen-xl px-4 py-3 md:px-6 lg:px-8">
+  <div class="flex h-20 items-center justify-between">
+    <!-- Logo -->
+    <div class="flex-1 flex items-center md:gap-12">
+      <a class="home-logo flex text-[rgba(62,207,76,1)] cursor-pointer" href="../index.html">
+        <img src="../../assets/images/logo.png" alt="Logo" />
+      </a>
+    </div>
+    <!-- End Logo -->
+
+    <div class="sm:flex sm:items-center sm:gap-12">
+      <!-- Menu Item -->
+      <nav aria-label="Global" class="hidden sm:block">
+        <ul class="flex items-center gap-6 text-sm">
+          <li>
+            <a
+              class="text-gray-500 font-medium transition hover:text-gray-500/75"
+              href="#categories"
+            >
+              Kategori
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- End Menu Item -->
+
+      <div class="flex items-center gap-4">
+        <!-- Login & Register -->
+        <div id="guest-nav" class="hidden sm:flex sm:gap-4">
+          <a
+            class="rounded-xl bg-[rgba(62,207,76,1)] px-5 py-2.5 text-sm font-medium text-white border border-[rgba(62,207,76,1)] hover:bg-green-600 hover:border hover:border-[rgba(226,252,217,0.8)]"
+            href="../pages/auth/login.html"
+          >
+            Login
+          </a>
+          <a
+            class="rounded-xl border bg-white border-[rgba(62,207,76,1)] text-[rgba(62,207,76,1)] px-5 py-2.5 text-sm font-medium hover:bg-[rgba(62,207,76,1)] hover:text-white"
+            href="../pages/auth/register.html"
+          >
+            Register
+          </a>
+        </div>
+        <!-- End Login & Register -->
+      </div>
+    </div>
+
+    <!-- Hamburger -->
+    <div>
       <button
         id="hamburger-btn"
         class="sm:hidden w-10 h-10 flex items-center justify-center"
@@ -48,43 +86,6 @@
           />
         </svg>
       </button>
-      <!-- End Hamburger -->
-
-      <div class="sm:flex sm:items-center sm:gap-12">
-        <!-- Menu Item -->
-        <nav aria-label="Global" class="hidden sm:block">
-          <ul class="flex items-center gap-6 text-sm">
-            <li>
-              <a
-                class="text-gray-500 font-medium transition hover:text-gray-500/75"
-                href="#categories"
-              >
-                Kategori
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <!-- End Menu Item -->
-
-        <div class="flex items-center gap-4">
-          <!-- Login & Register -->
-          <div id="guest-nav" class="hidden sm:flex sm:gap-4">
-            <a
-              class="rounded-xl bg-[rgba(62,207,76,1)] px-5 py-2.5 text-sm font-medium text-white border border-[rgba(62,207,76,1)] hover:bg-green-600 hover:border hover:border-[rgba(226,252,217,0.8)]"
-              href="../../pages/auth/login.html"
-            >
-              Login
-            </a>
-            <a
-              class="rounded-xl border bg-white border-[rgba(62,207,76,1)] text-[rgba(62,207,76,1)] px-5 py-2.5 text-sm font-medium hover:bg-[rgba(62,207,76,1)] hover:text-white"
-              href="../../pages/auth/register.html"
-            >
-              Register
-            </a>
-          </div>
-          <!-- End Login & Register -->
-        </div>
-      </div>
 
       <!-- Mobile Menu -->
       <div
@@ -105,13 +106,13 @@
         <div class="flex gap-4 mt-8 w-full">
           <a
             class="flex-1 rounded-xl bg-[rgba(62,207,76,1)] px-4 py-3 text-center text-white hover:bg-green-600"
-            href="../../pages/auth/login.html"
+            href="../pages/auth/login.html"
           >
             Login
           </a>
           <a
             class="flex-1 rounded-xl border border-[rgba(62,207,76,1)] px-4 py-3 text-center text-[rgba(62,207,76,1)] hover:bg-[rgba(62,207,76,1)] hover:text-white"
-            href="../../pages/auth/register.html"
+            href="../pages/auth/register.html"
           >
             Register
           </a>
@@ -120,5 +121,7 @@
       </div>
       <!-- End Mobile Menu -->
     </div>
+    <!-- End Hamburger -->
   </div>
-</header>
+</div>
+`;

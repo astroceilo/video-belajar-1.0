@@ -31,13 +31,20 @@
   </head>
 
   <body>
-    <button id="logoutBtn">Logout</button>
+    <!-- Header -->
+    <header id="header" class="header bg-white sticky top-0 z-30"></header>
+    <!-- End Header -->
 
-    <script>
-      document.getElementById("logoutBtn").addEventListener("click", () => {
-        localStorage.removeItem("isLoggedIn");
-        window.location.href = "../../index.html";
-      });
-    </script>
+    <!-- Main Content -->
+    <section class="bg-[#FFFDF5] relative py-8 md:py-16">
+      <div class="mx-auto max-w-screen-xl px-4 py-3 md:px-6 lg:px-8"></div>
+    </section>
+    <!-- End Main Content -->
+
+    <!-- Footer -->
+    <footer id="footer" class="footer bg-white"></footer>
+    <!-- End Footer -->
+
+    <script type="module" src="../../js/pages/course.js"></script>
   </body>
 </html>

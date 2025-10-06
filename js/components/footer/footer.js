@@ -1,4 +1,5 @@
-<footer class="bg-white">
+export const footer = `
+
   <div class="mx-auto max-w-screen-xl px-4 py-10 sm:px-6 lg:px-8">
     <div
       class="space-y-6 sm:grid sm:grid-cols-2 sm:gap-24 sm:space-y-0 items-start"
@@ -7,7 +8,7 @@
       <div class="max-w-sm">
         <div class="flex-1 flex items-center">
           <a class="flex text-[rgba(62,207,76,1)]" href="index.html">
-            <img src="./assets/images/logo.png" alt="Logo" />
+            <img src="../../assets/images/logo.png" alt="Logo" />
           </a>
         </div>
 
@@ -28,8 +29,8 @@
         <!-- Kategori -->
         <div>
           <button
-            class="w-full flex justify-between items-center font-bold text-gray-900 sm:cursor-default group"
-            onclick="toggleFooterMenu('kategori', this)"
+            class="footer-toggle w-full flex justify-between items-center font-bold text-gray-900 sm:cursor-default group"
+            data-target="menu-kategori"
           >
             Kategori
             <svg
@@ -49,7 +50,7 @@
           </button>
 
           <ul
-            id="kategori"
+            id="menu-kategori"
             class="mt-4 max-h-0 overflow-hidden transition-all duration-500 ease-in-out space-y-4 text-sm sm:max-h-none sm:block"
           >
             <li>
@@ -103,8 +104,8 @@
         <!-- Perusahaan -->
         <div>
           <button
-            class="w-full flex justify-between items-center font-bold text-gray-900 sm:cursor-default group"
-            onclick="toggleFooterMenu('perusahaan', this)"
+            class="footer-toggle w-full flex justify-between items-center font-bold text-gray-900 sm:cursor-default group"
+            data-target="menu-perusahaan"
           >
             Perusahaan
             <svg
@@ -124,7 +125,7 @@
           </button>
 
           <ul
-            id="perusahaan"
+            id="menu-perusahaan"
             class="mt-4 max-h-0 overflow-hidden transition-all duration-500 ease-in-out space-y-4 text-sm sm:max-h-none sm:block"
           >
             <li>
@@ -178,8 +179,8 @@
         <!-- Komunitas -->
         <div>
           <button
-            class="w-full flex justify-between items-center font-bold text-gray-900 sm:cursor-default group"
-            onclick="toggleFooterMenu('komunitas', this)"
+            class="footer-toggle w-full flex justify-between items-center font-bold text-gray-900 sm:cursor-default group"
+            data-target="menu-komunitas"
           >
             Komunitas
             <svg
@@ -199,7 +200,7 @@
           </button>
 
           <ul
-            id="komunitas"
+            id="menu-komunitas"
             class="mt-4 max-h-0 overflow-hidden transition-all duration-500 ease-in-out space-y-4 text-sm sm:max-h-none sm:block"
           >
             <li>
@@ -326,4 +327,4 @@
     </div>
     <!-- End Sosmed -->
   </div>
-</footer>
+`;

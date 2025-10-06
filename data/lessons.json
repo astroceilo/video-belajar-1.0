@@ -1,0 +1,77 @@
+[
+  { "course_id": 1, "modules": [
+    { "id": 1, "title": "Pengenalan Audit", "duration": "08:30" },
+    { "id": 2, "title": "Dasar Laporan Keuangan", "duration": "10:10" },
+    { "id": 3, "title": "Analisis Rasio", "duration": "11:25" },
+    { "id": 4, "title": "Laporan Arus Kas", "duration": "09:40" },
+    { "id": 5, "title": "Studi Kasus Audit", "duration": "12:00" }
+  ]},
+  { "course_id": 2, "modules": [
+    { "id": 1, "title": "Intro Digital Marketing", "duration": "06:00" },
+    { "id": 2, "title": "SEO Dasar", "duration": "07:30" },
+    { "id": 3, "title": "Social Media Marketing", "duration": "08:10" },
+    { "id": 4, "title": "Google Ads", "duration": "09:00" },
+    { "id": 5, "title": "Email Campaign", "duration": "07:45" },
+    { "id": 6, "title": "Analisis Trafik", "duration": "08:50" },
+    { "id": 7, "title": "Studi Kasus", "duration": "10:00" }
+  ]},
+  { "course_id": 3, "modules": [
+    { "id": 1, "title": "Intro Frontend", "duration": "06:45" },
+    { "id": 2, "title": "HTML Dasar", "duration": "08:50" },
+    { "id": 3, "title": "CSS Modern", "duration": "09:20" },
+    { "id": 4, "title": "JavaScript Dasar", "duration": "10:00" },
+    { "id": 5, "title": "React Basic", "duration": "12:00" },
+    { "id": 6, "title": "State & Props", "duration": "11:10" },
+    { "id": 7, "title": "Mini Project", "duration": "14:30" }
+  ]},
+  { "course_id": 4, "modules": [
+    { "id": 1, "title": "Intro Design Thinking", "duration": "06:00" },
+    { "id": 2, "title": "UI vs UX", "duration": "07:10" },
+    { "id": 3, "title": "Wireframing", "duration": "08:50" },
+    { "id": 4, "title": "Prototyping Figma", "duration": "09:10" },
+    { "id": 5, "title": "Testing User Flow", "duration": "10:20" },
+    { "id": 6, "title": "Final Project", "duration": "11:00" }
+  ]},
+  { "course_id": 5, "modules": [
+    { "id": 1, "title": "Intro Data Science", "duration": "07:00" },
+    { "id": 2, "title": "Python Basics", "duration": "08:30" },
+    { "id": 3, "title": "Numpy & Pandas", "duration": "09:20" },
+    { "id": 4, "title": "Data Visualization", "duration": "10:10" },
+    { "id": 5, "title": "Exploratory Analysis", "duration": "09:50" },
+    { "id": 6, "title": "Regression", "duration": "12:00" },
+    { "id": 7, "title": "Classification", "duration": "11:40" },
+    { "id": 8, "title": "Project", "duration": "14:00" }
+  ]},
+  { "course_id": 6, "modules": [
+    { "id": 1, "title": "Intro Project Management", "duration": "07:30" },
+    { "id": 2, "title": "Agile Basics", "duration": "08:10" },
+    { "id": 3, "title": "Scrum Framework", "duration": "09:30" },
+    { "id": 4, "title": "Sprint Planning", "duration": "10:20" },
+    { "id": 5, "title": "Case Study", "duration": "11:00" }
+  ]},
+  { "course_id": 7, "modules": [
+    { "id": 1, "title": "Intro Node.js", "duration": "07:10" },
+    { "id": 2, "title": "Express Basics", "duration": "09:00" },
+    { "id": 3, "title": "REST API", "duration": "10:00" },
+    { "id": 4, "title": "Authentication", "duration": "11:00" },
+    { "id": 5, "title": "Middleware", "duration": "08:40" },
+    { "id": 6, "title": "Deploy Project", "duration": "12:30" }
+  ]},
+  { "course_id": 8, "modules": [
+    { "id": 1, "title": "Intro Flutter", "duration": "06:40" },
+    { "id": 2, "title": "Widget Basics", "duration": "08:20" },
+    { "id": 3, "title": "Layouting", "duration": "09:00" },
+    { "id": 4, "title": "Navigation", "duration": "08:50" },
+    { "id": 5, "title": "State Management", "duration": "10:30" },
+    { "id": 6, "title": "Firebase Integration", "duration": "12:00" },
+    { "id": 7, "title": "API Handling", "duration": "10:50" },
+    { "id": 8, "title": "Push Notification", "duration": "09:40" },
+    { "id": 9, "title": "Final Project", "duration": "15:00" }
+  ]},
+  { "course_id": 9, "modules": [
+    { "id": 1, "title": "Intro English", "duration": "06:00" },
+    { "id": 2, "title": "Grammar Essentials", "duration": "07:20" },
+    { "id": 3, "title": "Business Vocabulary", "duration": "08:10" },
+    { "id": 4, "title": "Speaking Practice", "duration": "09:00" }
+  ]}
+]

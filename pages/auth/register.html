@@ -130,21 +130,9 @@
     <!-- End intl-tel-input CSS -->
   </head>
 
-  <body class="bg-[#FFFDF5]">
+  <body data-page="register" class="bg-[#FFFDF5]">
     <!-- Header -->
-    <header class="bg-white sticky top-0 z-30">
-      <div class="mx-auto max-w-screen-xl px-4 py-3 md:px-6 lg:px-8">
-        <div class="flex h-20 items-center justify-between">
-          <!-- Logo -->
-          <div class="flex-1 flex items-center md:gap-12">
-            <a class="flex text-[rgba(62,207,76,1)]" href="index.html">
-              <img src="../../assets/images/logo.png" alt="Logo" />
-            </a>
-          </div>
-          <!-- End Logo -->
-        </div>
-      </div>
-    </header>
+    <header id="header" class="header bg-white sticky top-0 z-30"></header>
     <!-- End Header -->
 
     <!-- Main Content -->
@@ -174,7 +162,7 @@
               >Nama Lengkap <span class="text-red-500">*</span>
             </label>
             <input
-              type="fullName"
+              type="text"
               id="fullName"
               name="fullName"
               class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-green-400 focus:outline-none"
@@ -205,7 +193,7 @@
           </div>
 
           <!-- Gender -->
-          <div id="dropdown-gender" data-dropdown>
+          <div class="gender-dropdown" data-dropdown>
             <label
               for="gender"
               class="block text-sm font-medium text-gray-700 mb-1"
@@ -240,7 +228,7 @@
 
               <!-- Dropdown -->
               <ul
-                class="dropdown-menu absolute hidden opacity-0 scale-95 transition transform duration-200 w-full bg-white border border-gray-300 rounded-md mt-1 shadow-md z-20"
+                class="dropdown-menu absolute hidden opacity-0 scale-95 transition transform duration-200 w-full bg-white border border-gray-300 rounded-md mt-1 shadow-md z-50"
               >
                 <li
                   data-value="pria"
@@ -277,7 +265,7 @@
             <!-- Error message -->
             <span id="phoneError" class="text-red-500 text-sm hidden"></span>
 
-            <input type="hidden" name="phone" id="fullPhone" />
+            <input type="hidden" name="fullPhone" id="fullPhone" />
           </div>
 
           <!-- Password -->
@@ -383,9 +371,9 @@
     </main>
     <!-- End Main Content -->
 
-    <script type="module" src="../../script/script.js"></script>
-
     <!-- intl-tel-input JS -->
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.11.2/build/js/intlTelInput.min.js"></script>
+
+    <script type="module" src="../../js/pages/register.js"></script>
   </body>
 </html>

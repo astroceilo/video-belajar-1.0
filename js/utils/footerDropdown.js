@@ -1,5 +1,5 @@
 // JS Load Footer
-export function initFooter() {
+export function initFooterDropdown() {
     function toggleFooterMenu(id, btn) {
         const el = document.getElementById(id);
 

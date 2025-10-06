@@ -1,4 +1,3 @@
-// JS Load Card Menu Item
 export function initCardMenu() {
     function setActive(el, category) {
         // --- Handle underline ---
@@ -41,5 +40,12 @@ export function initCardMenu() {
             }
         });
     }
+
+    const buttons = document.querySelectorAll("[data-filter]");
+    buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const category = btn.getAttribute("data-filter");
+            setActive(btn, category);
+        });
+    });
 }
-// End JS Load Card Menu Item

@@ -30,21 +30,9 @@
     />
   </head>
 
-  <body class="bg-[#FFFDF5]">
+  <body data-page="login" class="bg-[#FFFDF5]">
     <!-- Header -->
-    <header class="bg-white sticky top-0 z-30">
-      <div class="mx-auto max-w-screen-xl px-4 py-3 md:px-6 lg:px-8">
-        <div class="flex h-20 items-center justify-between">
-          <!-- Logo -->
-          <div class="flex-1 flex items-center md:gap-12">
-            <a class="flex text-[rgba(62,207,76,1)]" href="index.html">
-              <img src="../../assets/images/logo.png" alt="Logo" />
-            </a>
-          </div>
-          <!-- End Logo -->
-        </div>
-      </div>
-    </header>
+    <header id="header" class="header bg-white sticky top-0 z-30"></header>
     <!-- End Header -->
 
     <!-- Main Content -->
@@ -60,7 +48,7 @@
         </p>
 
         <!-- Error Alert -->
-        <div
+        <!-- <div
           id="loginError"
           role="alert"
           class="border-s-4 border-red-700 bg-red-50 mb-4 p-4 text-left hidden transition-opacity duration-500 opacity-0"
@@ -87,15 +75,11 @@
             assumenda numquam deserunt consectetur autem nihil quos debitis
             dolor culpa.
           </p>
-        </div>
+        </div> -->
         <!-- End Error Alert -->
 
         <!-- Form -->
-        <form
-          id="loginForm"
-          action="../user/index.html"
-          class="space-y-4 text-left"
-        >
+        <form id="loginForm" action="../index.html" class="space-y-4 text-left">
           <!-- Email -->
           <div>
             <label
@@ -188,6 +172,7 @@
     </main>
     <!-- End Main Content -->
 
-    <script type="module" src="../../script/script.js"></script>
+    <!-- <script type="module" src="../../js/pages/index.js"></script> -->
+    <script type="module" src="../../js/pages/login.js"></script>
   </body>
 </html>
